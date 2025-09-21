@@ -120,3 +120,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .box {
+    @apply max-w-7xl mx-auto px-4 py-7 md:py-10 lg:py-12;
+  }
+}
