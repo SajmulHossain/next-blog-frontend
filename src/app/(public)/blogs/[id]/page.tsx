@@ -1,11 +1,18 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import BlogDetailsCard from "@/components/modules/Blogs/BlogDetailsCard";
 
 export const generateStaticParams = async() => {
-  return [
-    {
-      id: "1"
-    }
-  ]
+  // return [
+  //   {
+  //     id: "1"
+  //   }
+  // ]
+
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/posts?limit=2`);
+  const { data: blogs} = await res.json();
+  return blogs.map((blog: any) => ({
+    id: String(blog.id),
+  }));
 }
 
 const BlogDetailsPage = async ({
