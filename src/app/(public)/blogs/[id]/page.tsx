@@ -1,5 +1,13 @@
 import BlogDetailsCard from "@/components/modules/Blogs/BlogDetailsCard";
 
+export const generateStaticParams = async() => {
+  return [
+    {
+      id: "1"
+    }
+  ]
+}
+
 const BlogDetailsPage = async ({
   params,
 }: {

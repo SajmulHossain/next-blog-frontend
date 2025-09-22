@@ -9,7 +9,7 @@ const AllBlogsPage = async () => {
   return (
     <div className="py-30 px-4 max-w-7xl mx-auto">
       <h2 className="text-center text-4xl">All Blogs</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {blogs.map((blog: any) => (
           <BlogCard key={blog._id} post={blog} />
         ))}
