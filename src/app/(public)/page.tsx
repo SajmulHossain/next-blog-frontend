@@ -5,7 +5,7 @@ import Hero from "@/components/modules/Home/Hero";
 export default async function HomePage() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/posts?limit=3`, {
     next: {
-      revalidate: 40,
+      tags: ['BLOGS']
     },
   });
   const { data: blogs } = await res.json();
