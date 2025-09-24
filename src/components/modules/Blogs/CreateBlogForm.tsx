@@ -1,6 +1,5 @@
 "use client";
 import { create } from "@/action/create";
-// import { create } from "@/actions/create";
 import Form from "next/form";
 
 import { useState } from "react";
