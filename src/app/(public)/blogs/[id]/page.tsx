@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import BlogDetailsCard from "@/components/modules/Blogs/BlogDetailsCard";
-import { getBlogbyId } from "@/services/PostServices";
+import { getAllBlogs, getBlogbyId } from "@/services/PostServices";
 
 export const generateStaticParams = async() => {
   // return [
@@ -9,8 +9,7 @@ export const generateStaticParams = async() => {
   //   }
   // ]
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/posts?limit=2`);
-  const { data: blogs} = await res.json();
+  const { data: blogs} = await getAllBlogs();
   return blogs.map((blog: any) => ({
     id: String(blog.id),
   }));
