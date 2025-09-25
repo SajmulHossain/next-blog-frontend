@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import BlogDetailsCard from "@/components/modules/Blogs/BlogDetailsCard";
+import { getBlogbyId } from "@/services/PostServices";
 
 export const generateStaticParams = async() => {
   // return [
@@ -17,8 +18,7 @@ export const generateStaticParams = async() => {
 
 export const generateMetadata = async({params}: {params: Promise<{id: string}>}) => {
   const { id } = await params;
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/posts/${id}`);
-  const blog = await res.json();
+  const blog = await getBlogbyId(id);
 
   return {
     title: blog.title
@@ -31,10 +31,7 @@ const BlogDetailsPage = async ({
   params: Promise<{ id: string }>;
 }) => {
   const { id } = await params;
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/posts/${id}`, {
-    cache: "no-store",
-  });
-  const blog = await res.json();
+  const blog = await getBlogbyId(id);
 
   return (
     <div className="box">
