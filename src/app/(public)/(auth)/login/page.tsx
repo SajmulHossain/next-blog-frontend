@@ -2,9 +2,9 @@ import LoginForm from "@/components/modules/Auth/LoginForm";
 
 const LoginPage = () => {
   return (
-    <div>
+    <section>
       <LoginForm />
-    </div>
+    </section>
   );
 };
 
