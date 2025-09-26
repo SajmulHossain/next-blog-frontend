@@ -23,6 +23,7 @@ import { useRouter } from "next/navigation";
 //   password: string;
 // };
 
+const register = async (val) => {}
 export default function RegisterForm() {
   const form = useForm<FieldValues>({
     defaultValues: {
